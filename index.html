@@ -1,1 +1,303 @@
+import React from "react";
+import { motion } from "framer-motion";
+import { ArrowRight, Mic, PenLine, Sparkles, Layers, MessageSquare, ExternalLink, Download, Mail, Linkedin } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 22 },
+  visible: { opacity: 1, y: 0 }
+};
+
+const caseStudies = [
+  {
+    title: "Rebuilt Onboarding Around Story",
+    kicker: "From info dump to narrative",
+    problem: "New hires were learning the product, but not how to talk about it.",
+    move: "Flipped onboarding from product-first to story-first, anchoring the experience around buyer pain, value, and confident explanation.",
+    outcome: "Faster ramp, cleaner messaging, and less ‘wait, what do we actually do?’ energy."
+  },
+  {
+    title: "Closed the Story Gap",
+    kicker: "Product vs. reality",
+    problem: "The product was strong. The story was scattered. Sales was improvising.",
+    move: "Built a repeatable narrative: the problem, the shift, why it matters, and how to say it like a human.",
+    outcome: "Better conversations, fewer feature dumps, and a story the field could actually use."
+  },
+  {
+    title: "Hosted D’Art & The Deal",
+    kicker: "Enablement that people remember",
+    problem: "Enablement felt like something people had to attend, not something they wanted to join.",
+    move: "Created a talk-show style internal series with real voices, useful stories, practical takeaways, and actual energy.",
+    outcome: "Higher engagement, more memorable product stories, and ideas that moved beyond the meeting."
+  },
+  {
+    title: "Built a Content Engine",
+    kicker: "Without making it feel like one",
+    problem: "Good ideas were trapped in people’s heads, decks, and one-off calls.",
+    move: "Turned scattered knowledge into sessions, frameworks, usable content, and repeatable field-ready narratives.",
+    outcome: "Less reinvention, more consistency, and cleaner bridges between product, marketing, sales, and customers."
+  }
+];
+
+const beliefs = [
+  "Enablement shouldn’t be training. It should be translation.",
+  "If sales can’t repeat it, it doesn’t exist.",
+  "Most companies don’t have a product problem. They have a storytelling problem.",
+  "Simplicity is earned.",
+  "The gap between what a product does and how it’s sold is where deals go to die.",
+  "A good story does not make the product smaller. It makes the value easier to see."
+];
+
+const ideas = [
+  {
+    title: "Most Companies Don’t Have a Product Problem",
+    body: "If your team can’t explain what you do in 30 seconds, your product probably isn’t the issue. The story is."
+  },
+  {
+    title: "Enablement Is Translation",
+    body: "Training gives people information. Translation gives people understanding. One gets completed. The other gets used."
+  },
+  {
+    title: "The Feature Trap",
+    body: "Features feel safe because you can list them. Buyers do not buy lists. They buy clarity, confidence, and momentum."
+  }
+];
+
+export default function DartStricklandPortfolio() {
+  return (
+    <div className="min-h-screen bg-[#101014] text-zinc-100 selection:bg-fuchsia-400 selection:text-black">
+      <div className="pointer-events-none fixed inset-0 overflow-hidden">
+        <div className="absolute -top-40 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-fuchsia-500/20 blur-3xl" />
+        <div className="absolute top-80 -left-24 h-80 w-80 rounded-full bg-violet-500/20 blur-3xl" />
+        <div className="absolute bottom-20 right-0 h-72 w-72 rounded-full bg-amber-300/10 blur-3xl" />
+      </div>
+
+      <header className="relative z-10 mx-auto flex max-w-7xl items-center justify-between px-6 py-6 md:px-10">
+        <a href="#top" className="text-sm font-bold tracking-[0.28em] text-zinc-200">D’ART STRICKLAND</a>
+        <nav className="hidden items-center gap-7 text-sm text-zinc-300 md:flex">
+          <a className="hover:text-white" href="#work">Work</a>
+          <a className="hover:text-white" href="#ideas">Ideas</a>
+          <a className="hover:text-white" href="#speaking">Speaking</a>
+          <a className="hover:text-white" href="#about">About</a>
+        </nav>
+        <Button className="rounded-full bg-white text-black hover:bg-zinc-200" asChild>
+          <a href="mailto:youremail@example.com">Contact</a>
+        </Button>
+      </header>
+
+      <main id="top" className="relative z-10">
+        <section className="mx-auto grid max-w-7xl gap-10 px-6 pb-24 pt-16 md:grid-cols-[1.1fr_0.9fr] md:px-10 md:pb-32 md:pt-24">
+          <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ duration: 0.6 }}>
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-zinc-300 backdrop-blur">
+              <Sparkles className="h-4 w-4 text-amber-300" />
+              Product storyteller. Tech evangelist. Human translator.
+            </div>
+            <h1 className="max-w-4xl text-5xl font-black leading-[0.95] tracking-tight md:text-7xl lg:text-8xl">
+              I turn complex technology into stories people actually understand.
+            </h1>
+            <p className="mt-7 max-w-2xl text-xl leading-8 text-zinc-300">
+              Most companies don’t have a product problem. They have a storytelling problem.
+              I sit at the intersection of product, sales, and reality, helping teams explain what they do in a way that actually lands.
+            </p>
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Button size="lg" className="rounded-full bg-fuchsia-400 px-7 text-black hover:bg-fuchsia-300" asChild>
+                <a href="#work">See the work <ArrowRight className="ml-2 h-4 w-4" /></a>
+              </Button>
+              <Button size="lg" variant="outline" className="rounded-full border-white/20 bg-white/5 px-7 text-white hover:bg-white/10 hover:text-white" asChild>
+                <a href="#ideas">Read the POV</a>
+              </Button>
+            </div>
+          </motion.div>
+
+          <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ duration: 0.6, delay: 0.15 }} className="flex items-center">
+            <Card className="w-full overflow-hidden rounded-[2rem] border-white/10 bg-white/[0.06] shadow-2xl backdrop-blur">
+              <CardContent className="p-7 md:p-9">
+                <div className="mb-8 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm uppercase tracking-[0.25em] text-zinc-400">Current angle</p>
+                    <h2 className="mt-2 text-3xl font-black text-white">Make tech human.</h2>
+                  </div>
+                  <div className="rounded-2xl bg-fuchsia-400/15 p-4">
+                    <MessageSquare className="h-7 w-7 text-fuchsia-300" />
+                  </div>
+                </div>
+                <div className="space-y-4">
+                  {[
+                    "Translate product complexity into market clarity",
+                    "Build narratives sales teams can actually repeat",
+                    "Host conversations people remember",
+                    "Create content that moves ideas through an organization"
+                  ].map((item) => (
+                    <div key={item} className="rounded-2xl border border-white/10 bg-black/20 p-4 text-zinc-200">
+                      {item}
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        </section>
+
+        <section className="border-y border-white/10 bg-white/[0.03] px-6 py-12 md:px-10">
+          <div className="mx-auto grid max-w-7xl gap-6 md:grid-cols-3">
+            <div>
+              <p className="text-sm uppercase tracking-[0.3em] text-fuchsia-300">What I do</p>
+              <h2 className="mt-3 text-3xl font-black">Not more noise. Better signal.</h2>
+            </div>
+            <p className="text-lg leading-8 text-zinc-300 md:col-span-2">
+              I don’t build enablement for the sake of enablement. I help companies say what they actually do, help their teams repeat it, and make customers care. Sometimes that looks like onboarding. Sometimes it looks like content. Sometimes it looks like a room full of people finally getting it.
+            </p>
+          </div>
+        </section>
+
+        <section id="work" className="mx-auto max-w-7xl px-6 py-24 md:px-10">
+          <div className="mb-10 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div>
+              <p className="text-sm uppercase tracking-[0.3em] text-fuchsia-300">Selected work</p>
+              <h2 className="mt-3 text-4xl font-black md:text-5xl">The useful stuff.</h2>
+            </div>
+            <p className="max-w-xl text-zinc-300">
+              Sanitized, high-level examples of the kind of work I do: turn scattered complexity into stories, systems, and momentum.
+            </p>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-2">
+            {caseStudies.map((study, index) => (
+              <motion.div key={study.title} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} variants={fadeUp} transition={{ duration: 0.45, delay: index * 0.05 }}>
+                <Card className="h-full rounded-[2rem] border-white/10 bg-white/[0.06] transition hover:-translate-y-1 hover:bg-white/[0.08]">
+                  <CardContent className="p-7">
+                    <div className="mb-5 flex items-start justify-between gap-4">
+                      <div>
+                        <p className="text-sm font-semibold text-fuchsia-300">{study.kicker}</p>
+                        <h3 className="mt-2 text-2xl font-black text-white">{study.title}</h3>
+                      </div>
+                      <Layers className="h-6 w-6 text-zinc-400" />
+                    </div>
+                    <div className="space-y-4 text-zinc-300">
+                      <p><span className="font-bold text-white">The problem:</span> {study.problem}</p>
+                      <p><span className="font-bold text-white">The move:</span> {study.move}</p>
+                      <p><span className="font-bold text-white">What changed:</span> {study.outcome}</p>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        <section id="ideas" className="bg-zinc-100 px-6 py-24 text-zinc-950 md:px-10">
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-10 max-w-3xl">
+              <p className="text-sm uppercase tracking-[0.3em] text-fuchsia-700">Writing / ideas</p>
+              <h2 className="mt-3 text-4xl font-black md:text-6xl">Point of view beats polish.</h2>
+              <p className="mt-5 text-lg leading-8 text-zinc-700">
+                A few ideas I keep coming back to. These are the sparks that turn into talks, posts, sessions, and better stories.
+              </p>
+            </div>
+
+            <div className="grid gap-5 md:grid-cols-3">
+              {ideas.map((idea) => (
+                <Card key={idea.title} className="rounded-[2rem] border-zinc-200 bg-white shadow-sm">
+                  <CardContent className="p-7">
+                    <PenLine className="mb-6 h-7 w-7 text-fuchsia-700" />
+                    <h3 className="text-2xl font-black">{idea.title}</h3>
+                    <p className="mt-4 leading-7 text-zinc-700">{idea.body}</p>
+                    <a href="#contact" className="mt-6 inline-flex items-center text-sm font-bold text-zinc-950">
+                      Turn this into a post <ArrowRight className="ml-2 h-4 w-4" />
+                    </a>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mx-auto max-w-7xl px-6 py-24 md:px-10">
+          <div className="grid gap-10 md:grid-cols-[0.8fr_1.2fr]">
+            <div>
+              <p className="text-sm uppercase tracking-[0.3em] text-fuchsia-300">How I think</p>
+              <h2 className="mt-3 text-4xl font-black md:text-5xl">The rules I keep breaking, then rebuilding.</h2>
+            </div>
+            <div className="grid gap-4">
+              {beliefs.map((belief) => (
+                <div key={belief} className="rounded-3xl border border-white/10 bg-white/[0.06] p-5 text-lg text-zinc-200">
+                  {belief}
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="speaking" className="border-y border-white/10 bg-white/[0.03] px-6 py-24 md:px-10">
+          <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 md:items-center">
+            <div>
+              <p className="text-sm uppercase tracking-[0.3em] text-fuchsia-300">Speaking / hosting</p>
+              <h2 className="mt-3 text-4xl font-black md:text-5xl">I like rooms where something clicks.</h2>
+              <p className="mt-6 text-lg leading-8 text-zinc-300">
+                I’m not trying to present. I’m trying to make something land. That has looked like internal talk shows, product enablement sessions, onboarding moments, interviews, workshops, and conversations that cut through the fog.
+              </p>
+            </div>
+            <Card className="rounded-[2rem] border-white/10 bg-black/30">
+              <CardContent className="p-7">
+                <Mic className="mb-6 h-8 w-8 text-fuchsia-300" />
+                <ul className="space-y-4 text-lg text-zinc-200">
+                  <li>Hosted internal talk series: <span className="font-bold text-white">D’Art & The Deal</span></li>
+                  <li>Led onboarding sessions that don’t feel like onboarding</li>
+                  <li>Interviewed internal experts and turned it into usable insight</li>
+                  <li>Built interactive sessions with actual energy, not corporate fog machine energy</li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        <section id="about" className="mx-auto max-w-7xl px-6 py-24 md:px-10">
+          <div className="max-w-4xl">
+            <p className="text-sm uppercase tracking-[0.3em] text-fuchsia-300">About</p>
+            <h2 className="mt-3 text-4xl font-black md:text-6xl">I’ve spent my career in the middle of things.</h2>
+            <div className="mt-8 space-y-6 text-xl leading-9 text-zinc-300">
+              <p>Product on one side. Sales on the other. Customers somewhere in between.</p>
+              <p>Most of the time, they’re not saying the same thing.</p>
+              <p>I help fix that.</p>
+              <p>Not with more slides. With better stories.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="contact" className="px-6 pb-24 md:px-10">
+          <div className="mx-auto max-w-7xl rounded-[2.5rem] bg-fuchsia-400 p-8 text-black md:p-12">
+            <div className="grid gap-8 md:grid-cols-[1.2fr_0.8fr] md:items-end">
+              <div>
+                <p className="text-sm font-bold uppercase tracking-[0.3em]">Let’s talk</p>
+                <h2 className="mt-3 text-4xl font-black md:text-6xl">Want to make your product make sense?</h2>
+                <p className="mt-5 max-w-2xl text-lg leading-8 text-black/75">
+                  I’m looking for roles where product, story, market, and humans all collide. Tech evangelist. Product storyteller. Narrative-heavy PMM. The title matters less than the mission.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
+                <Button size="lg" className="rounded-full bg-black text-white hover:bg-zinc-900" asChild>
+                  <a href="mailto:youremail@example.com"><Mail className="mr-2 h-4 w-4" /> Email me</a>
+                </Button>
+                <Button size="lg" variant="outline" className="rounded-full border-black/20 bg-transparent hover:bg-black/10" asChild>
+                  <a href="https://www.linkedin.com/in/dartstrickland/" target="_blank" rel="noreferrer"><Linkedin className="mr-2 h-4 w-4" /> LinkedIn</a>
+                </Button>
+                <Button size="lg" variant="outline" className="rounded-full border-black/20 bg-transparent hover:bg-black/10" asChild>
+                  <a href="#"><Download className="mr-2 h-4 w-4" /> Resume</a>
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="relative z-10 border-t border-white/10 px-6 py-8 text-sm text-zinc-500 md:px-10">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 md:flex-row md:items-center md:justify-between">
+          <p>© {new Date().getFullYear()} D’Art Strickland. Complex tech. Human stories. Real momentum.</p>
+          <a className="inline-flex items-center gap-2 hover:text-zinc-300" href="#top">Back to top <ExternalLink className="h-3 w-3" /></a>
+        </div>
+      </footer>
+    </div>
+  );
+}
 
